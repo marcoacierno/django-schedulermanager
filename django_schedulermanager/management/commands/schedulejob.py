@@ -16,7 +16,7 @@ class Command(BaseCommand):
         for job in jobs_to_schedule:
             if job not in manager:
                 self.stdout.write(
-                    'Unable to find job {}. Avalable jobs: {}'.format(job, ','.join([job for job, _ in manager.jobs.items()]))
+                    'Unable to find job {}. Available jobs: {}'.format(job, ','.join(manager.jobs.keys()))
                 )
                 continue
 
