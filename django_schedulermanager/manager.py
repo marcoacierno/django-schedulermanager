@@ -41,11 +41,7 @@ class SimpleManager(object):
         return self._available_jobs[job_id]
 
     def __contains__(self, value):
-        for name, _ in self._available_jobs:
-            if name == value:
-                return True
-
-        return False
+        return value in self._available_jobs.keys()
 
     @property
     def jobs(self):
