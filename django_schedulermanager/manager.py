@@ -37,6 +37,17 @@ class SimpleManager(object):
         )
         return True
 
+    def unschedule(self, job_id, options=None):
+        if options is None:
+            options = self.get_options(job_id)
+
+        if 'queue' not in options:
+            raise ValueError('Options object is not valid. Required values: queue')
+
+        scheduler = django_rq.get_scheduler(options['queue'])
+        scheduler.cancel(job_id)
+        return True
+
     def get_options(self, job_id):
         return self._available_jobs[job_id]
 
