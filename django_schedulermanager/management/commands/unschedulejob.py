@@ -7,7 +7,6 @@ class Command(BaseCommand):
     help = 'Unschedules a job'
 
     def add_arguments(self, parser):
-        # Positional arguments
         parser.add_argument('jobs_name', nargs='+')
 
     def handle(self, *args, **options):
