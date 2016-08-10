@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_rq',
+
     'testapp',
 
     'django_schedulermanager.apps.DjangoSchedulerManagerConfig',
