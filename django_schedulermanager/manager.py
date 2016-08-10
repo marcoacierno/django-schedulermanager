@@ -29,7 +29,7 @@ class SimpleManager(object):
 
         scheduler = django_rq.get_scheduler(options['queue'])
         scheduler.schedule(
-            scheduled_time=options['scheduled_time'],
+            scheduled_time=options['scheduled_time'](),
             id=job_id,
             func=options['func'],
             interval=options['interval'],
