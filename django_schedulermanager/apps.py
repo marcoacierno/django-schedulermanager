@@ -6,8 +6,7 @@ import inspect
 from django.apps import AppConfig
 from django.conf import settings
 
-
-AVAILABLE_JOBS = []
+from .manager import manager
 
 
 class DjangoSchedulerManagerConfig(AppConfig):
@@ -25,14 +24,10 @@ class DjangoSchedulerManagerConfig(AppConfig):
             members = inspect.getmembers(jobs_module, self.schedulable_only)
 
             for name, instance in members:
-                print(name, 'instance', instance.django_scheduler['interval'])
-                AVAILABLE_JOBS.append(name, instance.django_scheduler)
+                manager.add_job(instance.django_scheduler['id'], instance.django_scheduler)
 
-    def schedulable_only(self, x):
+    def schedulable_only(self, member):
         return (
-            hasattr(x, 'django_scheduler') and
-            x.django_scheduler['is_schedulable']
+            hasattr(member, 'django_scheduler') and
+            member.django_scheduler['is_schedulable']
         )
-
-
-AVAILABLE_JOBS = []
