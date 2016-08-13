@@ -26,6 +26,10 @@ and will be removed soon.
           Not required, by default None which means 'use the name of the function'
     - queue: The queue to use. By default 'default'
 
+See also `test-project` directory to see an example, if you want to test the project, clone the repository
+and run the command `make testproject`, it will copy the `django_schedulermanager` folder (the library code)
+in the `test-project` folder
+
 ## TODO
 
 - [ ] Remove dependency on `django-rq`
