@@ -24,3 +24,10 @@ and will be removed soon.
           when using `(un)schedulejob`.
           Not required, by default None which means 'use the name of the function'
     - queue: The queue to use. By default 'default'
+
+## TODO
+
+- [ ] Remove dependency on `django-rq`
+- [ ] If present, read 'queue' from `@job` annotation
+- [ ] Add `unschedulejob all` to unschedule all the jobs
+- [ ] Add a command to remove all the scheduled jobs that don't have a function in the jobs.py files
