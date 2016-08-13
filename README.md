@@ -16,8 +16,8 @@ and will be removed soon.
 1. Write your job code in a module named 'jobs' (Remember to insert the app in the `INSTALLED_APPS` list)
 2. Import the `schedulable` annotation: `from django_schedulermanager.decorators import schedulable`
 3. Mark your function with `schedulable`. You can pass to the decorator the following parameters:
-    - interval: Required.
-    - scheduled_time: Required.
+    - interval: The interval of the function. Required.
+    - scheduled_time: When the function should start the first time. Required. It's a function.
     - repeat: Not required, by default None which means 'repeat always'
     - id: The ID of the job.
           It will also be the name of the job that you have to pass
