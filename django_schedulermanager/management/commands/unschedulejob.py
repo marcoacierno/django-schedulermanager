@@ -26,4 +26,4 @@ class Command(BaseCommand):
             job_options = manager.get_options(job)
             # TODO: Implement settings override
             manager.unschedule(job, job_options)
-            self.stdout.write(self.style.SUCCESS('Successfully unscheduled job {}!'.format(job)))
+            self.stdout.write('Successfully unscheduled job {}!'.format(job))
