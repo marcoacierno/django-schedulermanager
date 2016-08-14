@@ -37,7 +37,7 @@ class SimpleManager(object):
         if options is None:
             options = self.get_options(job_id)
 
-        if 'queue' not in options:
+        if options.queue is None:
             raise ValueError('Options object is not valid. Required values: queue')
 
         scheduler = django_rq.get_scheduler(options.queue)
@@ -54,7 +54,7 @@ class SimpleManager(object):
         if options is None:
             options = self.get_options(job_id)
 
-        if 'queue' not in options:
+        if options.queue is None:
             raise ValueError('Options object is not valid. Required values: queue')
 
         scheduler = django_rq.get_scheduler(options.queue)
