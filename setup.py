@@ -1,4 +1,9 @@
-import pypandoc
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except:
+    long_description = open('README.md').read()
+
 
 from setuptools import setup, find_packages
 
@@ -9,7 +14,7 @@ setup(
     name='django_schedulermanager',
     version=VERSION,
     description='A package that allows you to schedule and unschedule jobs',
-    long_description=pypandoc.convert('README.md', 'rst'),
+    long_description=long_description,
     author='Marco Acierno',
     author_email='marcoaciernoemail@gmail.com',
     packages=find_packages(),
