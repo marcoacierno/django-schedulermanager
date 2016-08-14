@@ -13,10 +13,11 @@ and will be removed soon.
 
 ## How to use
 
-1. Add `django_schedulermanager.apps.DjangoSchedulerManagerConfig` to your INSTALLED_APPS
-2. Write your job code in a module named 'jobs' (Remember to insert the app in the `INSTALLED_APPS` list)
-3. Import the `schedulable` annotation: `from django_schedulermanager.decorators import schedulable`
-4. Mark your function with `schedulable`. You can pass to the decorator the following parameters:
+1. Install the library using `pip install django_schedulermanager`
+2. Add `django_schedulermanager.apps.DjangoSchedulerManagerConfig` to your INSTALLED_APPS
+3. Write your job code in a module named 'jobs' (Remember to insert the app in the `INSTALLED_APPS` list)
+4. Import the `schedulable` annotation: `from django_schedulermanager.decorators import schedulable`
+5. Mark your function with `schedulable`. You can pass to the decorator the following parameters:
     - interval: The interval of the function. Required.
     - scheduled_time: When the function should start the first time. Required. It's a function.
     - repeat: Not required, by default None which means 'repeat always'
