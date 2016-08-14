@@ -24,10 +24,13 @@ class DjangoSchedulerManagerConfig(AppConfig):
             members = inspect.getmembers(jobs_module, self.schedulable_only)
 
             for name, instance in members:
-                manager.add_job(instance.django_scheduler['id'], instance.django_scheduler)
+                manager.add_job(
+                    instance.django_scheduler.id,
+                    instance.django_scheduler
+                )
 
     def schedulable_only(self, member):
         return (
             hasattr(member, 'django_scheduler') and
-            member.django_scheduler['is_schedulable']
+            member.django_scheduler.is_schedulable
         )
